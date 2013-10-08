@@ -1,0 +1,134 @@
+sudo_ _: use root to run_ _
+ls . => see this layer
+ls .. =>see previous layer
+~ =>tilde 
+rail new _ _: 
+pwd: show
+cd: into the directory
+
+Git -----------> github.com
+     push
+
+     through SSH key to identify  
+
+     Tryruby journal has already 100%
+
+     reverse
+     40.reverse => can't
+     40.to_s.reverse => ok (transfer 40 to string then reverse)
+Variables save a thing and give it a name. You used the equals sign to do this.
+
+Hashes: The little dictionary with the curly pages: {}.
+Symbols: Tiny, efficient code words with a colon: :splendid.
+Blocks: Chunks of code which can be tacked on to many of Ruby's methods. Here's the code you used to build a scorecard: 
+books.values.each { |rate| ratings[rate] += 1 }.
+
+entries is a method called on the Dir variable.
+And Dir has a collection of methods for checking out file directories.
+
+Dir.entries "/": Anything listed after a method is considered an attachment.
+print poem: See, print is an ordinary method. And the poem is attached. To be printed.
+print "pre", "event", "ual", "ism" has several arguments, with commas between them.
+
+We can start to use files to store things. This is great because normally when we exit Ruby, 
+   all our variables will be gone. Ruby,by itself, forgets these things. 
+   But if we save things in files, we can read those files in future Ruby escapades.
+
+   FileUtils.-cp('/comics.txt', '/Hom-e/comics.t-xt')
+   => nil
+   Success!
+   (copy "comics.txt" file to Home/)
+
+   > Dir["Home/-*.txt"]
+   > (search the txt file in Home/)
+>
+> You opened a new block when you typed do
+> This time we'll be using do and endinstead of curly braces. 
+> A lot of Rubyists will use do...endwhen the block goes on for many lines.
+>
+> Files. What more can be said? Lots of methods for editing files and lookin around in directories.
+> Arguments: Arguments are a list of things sent into a method. With commas between.
+> We also spoke about do and end which are another way to make a block.
+>
+> def load_comics( path )
+> => making your own method.started with def, followed by the name of the method. 
+> And a list of arguments which the method will need. This isn't too scary and dangerous!
+> All we have to do is fill it up with Ruby and finish it up with end.
+>
+> def load_?comics(pat?h)
+>  comic={}
+>   File.forea?ch(path) do |line?|
+>    name, url=l?ine.split(?': ')
+>     comic [name?] = url.s?trip
+>     end
+>     comics
+>     end
+>
+>
+>     A new method is born. 
+>     Let us use it: comics = load_comics('/comics.txt')
+>     Type next to start using your new comics
+>
+>
+>     File.foreach :
+>     is a method which opens a file and hands each line to the block. 
+>     The line variable inside the do...end block took turns with each line in the file.
+>
+>     split: 
+>     is a method for strings, which breaks the string up into an array.
+>     An axe is laid on the colon and the line is chopped in half, giving us the url and name for each comic.
+>
+>     strip :
+>     removes extra spaces around the url. Just in case.
+>
+>     require 'popu?p'
+>     => true
+>     Success!
+>     loaded the popup library. It's saved in a file in the Libraries folder. See: Dir["/Libraries/*"]
+>
+>     Popup.make?{
+  >     .. h1 "My Links?"
+    >     .. link "Go to Ruby"?, "http?://ruby-la?ng.org/"
+    >     .. }
+    >       
+    >       The term h1 (h-one) means a level-one header. In HTML, this is the largest size of header.
+    >
+    >
+    >       the empty curly braces {} is a shortcut forHash.new.
+    >       The new method is used to make objects of a certain class. 
+    >       (Think "class" as in "working class" — 
+        >       a specific group of objects which are similar, have the same jobs, the same shirts.)
+    >
+    >
+    >       In the class definition, you used a method calledattr_accessor. 
+    >       There are many attribute methods like this which add little settings to classes. 
+    >       These attributes are just variables attached to a class.
+    >
+    >
+    >       inside the class we used the symbols 
+    >       Like : @time = Time.now
+    >       Outside the class
+    >       use : entry.time = Time.now
+    >
+    >       tryruby blog 
+    >
+    >       code tip: 
+    >       1.(會產生blog的網頁 h1那個可以show 出網頁名稱)
+>       Popup.make do
+>       h1 "Comics on the Web"
+>       list do
+>       comics.each do |name, url|
+>       link name, url
+>       end
+>         end
+>         end
+>
+>         2.
+>         blog.each do |entry|
+>           h2 entry.title
+>             p entry.fulltext
+>             end
+>
+>a
+>:wq
+>
