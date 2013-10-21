@@ -1,0 +1,21 @@
+進入開發環境
+irb 或是 rails c/ rails console
+
+結束irb
+打exit
+
+結束rails 
+serverctrl+C
+
+rails generate migration create_檔名
+可以以整合的方式建立一個資料庫
+比起分批打方便很多
+
+rollback和delete不一樣
+
+rollback的指令:
+rake db:rollback
+
+delete的指令:
+ActiveRecord::IrreversibleMigration
+
