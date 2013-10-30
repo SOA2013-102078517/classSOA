@@ -57,8 +57,15 @@
   # match ':controller(/:action(/:id))(.:format)'
 
 Myrottenpotatoes::Application.routes.draw do
-  resources :movies
+
+  resources :movies do
+    resources :reviews
+  end
+  
+ 
   root :to => redirect('/movies')
+  devise_for :moviegoers, :controllers => { :omniauth_callbacks => "moviegoers/omniauth_callbacks" }
+
  end
 
 

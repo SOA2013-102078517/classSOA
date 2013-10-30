@@ -1,0 +1,80 @@
+進入開發環境
+irb 或是 rails c/ rails console
+
+結束irb
+打exit
+
+結束rails 
+serverctrl+C
+
+rails generate migration create_檔名
+可以以整合的方式建立一個資料庫
+比起分批打方便很多
+
+rollback和delete不一樣
+
+rollback的指令:
+rake db:rollback
+
+delete的指令:
+ActiveRecord::IrreversibleMigration
+
+a mix-in is a collection of related behaviors that can be added to any class
+
+when a method containing yeild is called,it starts running until yield is reached
+
+field 也可以執行"sandwich"的程式形式
+"sandwich":some custom functionality inside of some commom functionality  
+
+在session[]中放的程式碼要盡量越少越好
+有以下兩個原因:
+1. 在rail的default設定中,session是用來裝cookie的
+2. 雖然可以將seesion的大小調大,但是bulky session are a waring that your app's actions aren't very
+self-contained.that would mean your app isn't very RESTful and may be difficult to use as part of a soa
+
+REST (REpresentational State Transfer)
+其概念結合了 HTTP 與 URL 兩種協定，以及如何運用於網路軟體架構設計。
+
+RESTful: 以 URL 定位資源，根據 HTTP 內容指示操作動作與回應訊息。
+一個符合上述實作方式的網路服務，就稱之為 RESTful web service 。 
+有些文章則更進一步，將 ATOM 協定也加了進來，主要是看上 ATOM 格式的特點，將之運用於資源內容的更新工作。 
+有些 RESTful 文章還會強調要透過 HTTP Authorization 限制使用者存取資源的權限，而不是用表單加 Cookie。
+
+
+這段程式碼 讓user creat 和加入一個new movie to rottenpotatoes
+
+[%h2 Create New Movie
+
+= form_tag movies_path, :method => :post do
+
+  = label :movie, :title, 'Title'
+  = text_field :movie, :title
+
+  = label :movie, :rating, 'Rating'
+  = select :movie, :rating, Movie.all_ratings
+ 
+  = label :movie, :release_date, 'Released On'
+  = date_select :movie, :release_date
+
+  = submit_tag 'Save Changes']
+
+rails 使用 RESTful 讀URI helper 和HTTP POST method 去generate a route to the action
+
+create v.s new
+create: 實際在資料庫中建一個叫movie的空間
+new: new controller method that will render a view giving user a form to fill in.
+     placed that view in new.html.haml and arranged to have the form submitted to the create controller method.
+
+command summary of the interactive Ruby debugger
+
+n => 執行下一行
+s => 執行下一個statementf => 結束目前的method call and return
+p expr => print expr, which can be anything that's in scope within the current stack frame
+eval expr => 計算 expr, can be use to set variablss that are in scope, as eval x=5
+up => go up the call stack, to callee's stack frame
+down => go down the call stack, to callee's stack frame
+where =>列出 where u are in the call stack
+b file => 放置一個斷點 at line num of file 
+b method => 放置一個斷點 當method called
+c => 繼續執行直到下一個斷點(breakpoint)
+q => 結束 program

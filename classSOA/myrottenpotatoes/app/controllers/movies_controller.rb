@@ -1,5 +1,6 @@
 # This file is app/controllers/movies_controller.rb
 class MoviesController < ApplicationController
+before_filter :authenticate_moviegoer!
   def index
     @movies = Movie.all
   end
@@ -46,6 +47,20 @@ class MoviesController < ApplicationController
   @movie.destroy
   flash[:notice] = "Movie '#{@movie.title}' deleted."
   redirect_to movies_path
+  end
+  
+   def movies_with_filters
+    @movies = Movie.with_good_reviews(params[:threshold])
+    @movies = @movies.for_kids          if params[:for_kids]
+    @movies = @movies.with_many_fans    if params[:with_many_fans]
+    @movies = @movies.recently_reviewed if params[:recently_reviewed]
+  end
+  # or even DRYer:
+  def movies_with_filters_2
+    @movies = Movie.with_good_reviews(params[:threshold])
+    %w(for_kids with_many_fans recently_reviewed).each do |filter|
+      @movies = @movies.send(filter) if params[filter]
+    end
   end
 
 end

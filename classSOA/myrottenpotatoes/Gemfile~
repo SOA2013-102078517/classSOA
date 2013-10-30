@@ -42,4 +42,6 @@ gem 'haml'
 # use Ruby debugger
 group :development, :test do
   gem 'debugger'
+  
+  gem 'devise'
 end
