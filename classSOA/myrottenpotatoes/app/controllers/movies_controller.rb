@@ -1,6 +1,6 @@
 # This file is app/controllers/movies_controller.rb
 class MoviesController < ApplicationController
-before_filter :authenticate_moviegoer!
+#before_filter :authenticate_moviegoer!
   def index
     @movies = Movie.all
   end
@@ -55,6 +55,13 @@ before_filter :authenticate_moviegoer!
     @movies = @movies.with_many_fans    if params[:with_many_fans]
     @movies = @movies.recently_reviewed if params[:recently_reviewed]
   end
+
+  def search_tmdb
+    # hardwire to simulate failure
+    flash[:warning] = "'#{params[:search_terms]}' was not found in  TMDb."
+    redirect_to movies_path
+  end
+
   # or even DRYer:
   def movies_with_filters_2
     @movies = Movie.with_good_reviews(params[:threshold])
