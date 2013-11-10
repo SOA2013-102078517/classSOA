@@ -1,4 +1,13 @@
 Myrottenpotatoes::Application.routes.draw do
+  devise_for :moviegoers, :controllers => { :omniauth_callbacks => "moviegoers/omniauth_callbacks" }
+
+        root :to => redirect('/movies')
+
+        post '/movies/search_tmdb'
+        resources :movies do
+                resources :reviews
+        end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -55,13 +64,4 @@ Myrottenpotatoes::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-
-
-# Route that posts 'Search TMDb' form
-  root :to => redirect('/movies')
-  devise_for :moviegoers, :controllers => { :omniauth_callbacks => "moviegoers/omniauth_callbacks" }
-  post '/movies/search_tmdb'
-  resources :movies do
-    resources :reviews
-  end
- end
+end
